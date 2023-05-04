@@ -5,7 +5,7 @@ import { FaDownload } from "react-icons/fa";
 
 const Blog = () => {
   return (
-    <div className="container">
+    <div className="container mx-auto">
       <div className="w-9/12 mx-auto p-5">
         <div className="text-center mb-5">
           <button className="btn ">
