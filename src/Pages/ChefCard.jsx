@@ -1,5 +1,6 @@
 import React from "react";
 import { AiFillLike } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const ChefCard = (props) => {
   //   console.log(props.chef);
@@ -7,7 +8,7 @@ const ChefCard = (props) => {
     props.chef;
   return (
     <div>
-      <div className="card w-96 bg-base-100 shadow-xl">
+      <div className="card bg-base-100 shadow-xl">
         <figure className="w-full h-80">
           <img src={chefImage} alt="Shoes" />
         </figure>
@@ -22,7 +23,9 @@ const ChefCard = (props) => {
             {likes}
           </p>
           <div className="card-actions">
-            <button className="btn">View Recipes</button>
+            <Link to={`/chefRecipes/${id}`}>
+              <button className="btn">View Recipes</button>
+            </Link>
           </div>
         </div>
       </div>
