@@ -50,7 +50,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <Link to="/login" className="btn btn-primary">
+          <Link to="/login" className="btn">
             Login
           </Link>
         </div>

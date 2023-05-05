@@ -57,7 +57,7 @@ const Footer = () => {
             <a className="link link-hover">Terms & Condition</a>
           </div>
         </div>
-        <hr className="m-2 bg-gray-400" />
+        <hr className="m-2" />
         <p className="p-3 text-center">
           © Copyright 2023 - Tasty Yummies All Rights Reserved.
         </p>

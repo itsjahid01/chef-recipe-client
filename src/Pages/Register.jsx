@@ -7,23 +7,23 @@ const Register = () => {
       <div className="w-1/2 mx-auto p-5 text-center">
         <p className="text-2xl font-semibold mb-5 ">Sign Up</p>
         <form>
-          <label htmlFor="email">Name </label>
+          <label htmlFor="name">Name </label>
           <br />
           <input
             className="p-2 w-1/2 rounded mt-3 mb-3"
-            type="email"
-            name="email"
-            id="email"
-            placeholder="Enter Your Name "
+            type="text"
+            name="text"
+            id="name"
+            placeholder="Your Name "
           />
           <br />
-          <label htmlFor="password">Email</label>
+          <label htmlFor="email">Email</label>
           <br />
           <input
             className="p-2 w-1/2 rounded mt-3 mb-5"
-            type="password"
-            name="password"
-            id="password"
+            type="email"
+            name="email"
+            id="email"
             placeholder="Your Email"
           />
           <br />
@@ -41,9 +41,9 @@ const Register = () => {
           <br />
           <input
             className="p-2 w-1/2 rounded mt-3 mb-5"
-            type="password"
-            name="password"
-            id="password"
+            type="url"
+            name="url"
+            id="url"
             placeholder="Your Photo"
           />
           <br />
