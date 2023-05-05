@@ -2,6 +2,8 @@ import React from "react";
 import { useLoaderData } from "react-router-dom";
 import Banner from "./Banner";
 import ChefCard from "./ChefCard";
+import Ingredients from "./Ingredients";
+import Seasons from "./Seasons";
 
 const Home = () => {
   const chefData = useLoaderData();
@@ -14,6 +16,8 @@ const Home = () => {
           <ChefCard key={chef.id} chef={chef}></ChefCard>
         ))}
       </div>
+      <Ingredients></Ingredients>
+      <Seasons></Seasons>
     </div>
   );
 };

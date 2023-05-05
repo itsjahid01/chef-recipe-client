@@ -44,7 +44,7 @@ const Register = () => {
             type="url"
             name="url"
             id="url"
-            placeholder="Your Photo"
+            placeholder="Your Photo Url"
           />
           <br />
           <button className="btn w-48 mb-5" type="submit">
