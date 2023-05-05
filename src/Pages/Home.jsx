@@ -7,7 +7,7 @@ import Seasons from "./Seasons";
 
 const Home = () => {
   const chefData = useLoaderData();
-  console.log(chefData);
+  // console.log(chefData);
   return (
     <div className="container mx-auto">
       <Banner></Banner>

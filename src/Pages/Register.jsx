@@ -1,12 +1,41 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../provider/AuthProvider";
 
 const Register = () => {
+  const { registerUser } = useContext(AuthContext);
+  const [error, setError] = useState("");
+
+  const handleCreateUser = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    const photo = form.photo.value;
+    console.log(name, email, password, photo);
+
+    if (password.length < 6) {
+      setError("password not valid need 6 char ");
+      return;
+    }
+
+    if ((name, email, password)) {
+      registerUser(email, password)
+        .then((result) => {
+          console.log(result.user);
+        })
+        .catch((err) => {
+          console.log(err.message);
+        });
+    }
+  };
+
   return (
     <div className="bg-gray-200">
       <div className="w-1/2 mx-auto p-5 text-center">
         <p className="text-2xl font-semibold mb-5 ">Sign Up</p>
-        <form>
+        <form onSubmit={handleCreateUser}>
           <label htmlFor="name">Name </label>
           <br />
           <input
@@ -36,13 +65,14 @@ const Register = () => {
             id="password"
             placeholder="Your Password"
           />
+          <p className="text-red-500">{error}</p>
           <br />
           <label htmlFor="password">Photo URL</label>
           <br />
           <input
             className="p-2 w-1/2 rounded mt-3 mb-5"
-            type="url"
-            name="url"
+            type="text"
+            name="photo"
             id="url"
             placeholder="Your Photo Url"
           />

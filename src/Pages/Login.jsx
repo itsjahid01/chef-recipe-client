@@ -1,14 +1,36 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
+import { AuthContext } from "../provider/AuthProvider";
 
 const Login = () => {
+  const { loginUser } = useContext(AuthContext);
+  const [error, setError] = useState("");
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email, password);
+
+    if ((email, password)) {
+      loginUser(email, password)
+        .then((result) => {
+          console.log(result.user);
+          // navigate("/");
+        })
+        .catch((error) => {
+          setError(error.message);
+        });
+    }
+  };
   return (
     <div className="bg-gray-200">
       <div className="w-1/2 mx-auto p-8 text-center">
         <p className="text-2xl font-semibold mb-8">Login</p>
-        <form action="">
+        <form onSubmit={handleLogin}>
           <label htmlFor="email">Email Address</label>
           <br />
           <input
@@ -29,6 +51,7 @@ const Login = () => {
             placeholder="Your Password"
           />
           <br />
+          {<p className="text-red-500">{error}</p>}
           <button className="btn w-48 mb-5" type="submit">
             Login
           </button>
