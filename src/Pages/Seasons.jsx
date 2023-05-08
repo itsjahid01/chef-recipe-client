@@ -1,7 +1,7 @@
 import React from "react";
 import spring from "../assets/seasons/spring.jpeg";
 import fall from "../assets/seasons/fall.jpeg";
-import easter from "../assets/seasons/summer.jpeg";
+import easter from "../assets/seasons/easter.jpg";
 import summer from "../assets/seasons/summer.jpeg";
 
 const Seasons = () => {
@@ -19,17 +19,17 @@ const Seasons = () => {
         <div className=" p-5 ">
           <img className="w-24 h-24 mx-auto" src={fall} alt="" />
           <p className="text-center">Fall</p>
-          <p className="text-center">(8 recipes)</p>
+          <p className="text-center">(10 recipes)</p>
         </div>
         <div className=" p-5 ">
           <img className="w-24 h-24 mx-auto" src={summer} alt="" />
           <p className="text-center">Summer</p>
-          <p className="text-center">(5 recipes)</p>
+          <p className="text-center">(8 recipes)</p>
         </div>
         <div className=" p-5 ">
           <img className="w-24 h-24 mx-auto" src={easter} alt="" />
           <p className="text-center">Easter</p>
-          <p className="text-center">(7 recipes)</p>
+          <p className="text-center">(12 recipes)</p>
         </div>
       </div>
     </div>

@@ -14,11 +14,12 @@ const ChefRecipes = () => {
     recipes,
   } = useLoaderData();
   //   console.log(recipes);
+
   return (
     <div className="container mx-auto p-5">
       <div className="card card-side bg-base-100 shadow-xl">
-        <figure>
-          <img src={chefImage} alt="Movie" />
+        <figure className="w-3/5">
+          <img className="w-full" src={chefImage} alt="Movie" />
         </figure>
         <div className="card-body">
           <h2 className="text-lg font-semibold">Chef Name: {chefName}</h2>
@@ -26,7 +27,7 @@ const ChefRecipes = () => {
             <span className="text-lg font-semibold">Bio:</span> {bio}
           </p>
           <p>
-            <span className="text-lg font-semibold">Years of experience:</span>
+            <span className="text-lg font-semibold">Years of experience: </span>
             {yearsExperience}
           </p>
           <p>

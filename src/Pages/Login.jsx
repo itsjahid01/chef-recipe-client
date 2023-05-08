@@ -22,7 +22,7 @@ const Login = () => {
           // navigate("/");
         })
         .catch((error) => {
-          setError(error.message);
+          setError(error);
         });
     }
   };
