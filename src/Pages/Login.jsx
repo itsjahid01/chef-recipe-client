@@ -19,13 +19,19 @@ const Login = () => {
       loginUser(email, password)
         .then((result) => {
           console.log(result.user);
+          setError("");
           // navigate("/");
         })
         .catch((error) => {
-          setError(error);
+          setError(error.message);
         });
+    } else {
+      setError("Please provide your email and password.");
     }
   };
+
+  const handleGoogle = () => {};
+  const handleGithub = () => {};
   return (
     <div className="bg-gray-200">
       <div className="w-1/2 mx-auto p-8 text-center">
@@ -50,8 +56,9 @@ const Login = () => {
             id="password"
             placeholder="Your Password"
           />
+          <p className="text-red-500">{error}</p>
           <br />
-          {<p className="text-red-500">{error}</p>}
+
           <button className="btn w-48 mb-5" type="submit">
             Login
           </button>
@@ -63,13 +70,13 @@ const Login = () => {
           </Link>
         </p>
         <p>or Login With</p>
-        <button className="btn btn-outline mr-3 mt-3">
+        <button onClick={handleGoogle} className="btn btn-outline mr-3 mt-3">
           <span className="mr-2">
             <FaGoogle />
           </span>
           Sign in with Google
         </button>
-        <button className="btn btn-outline ">
+        <button onClick={handleGithub} className="btn btn-outline ">
           <span className="mr-2">
             <FaGithub />
           </span>

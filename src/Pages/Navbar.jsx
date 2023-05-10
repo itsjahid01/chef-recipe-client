@@ -13,7 +13,7 @@ const Navbar = () => {
       });
   };
   return (
-    <div className="bg-red-400 text-white">
+    <div className="bg-red-400">
       <div className="container mx-auto navbar">
         <div className="navbar-start">
           <div className="dropdown">
@@ -45,12 +45,12 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-          <Link to="/" className=" normal-case text-xl font-semibold">
+          <Link to="/" className=" normal-case text-xl font-bold">
             Tasty Yummies
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
+          <ul className="menu menu-horizontal px-1 font-semibold">
             <li>
               <Link to="/">Home</Link>
             </li>
@@ -61,9 +61,14 @@ const Navbar = () => {
         </div>
         <div className="navbar-end">
           {user ? (
-            <li onClick={handleLogout} className="btn">
-              LogOut
-            </li>
+            <>
+              <div title="jahid" className="w-10 rounded-full mr-5">
+                <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+              </div>
+              <li onClick={handleLogout} className="btn">
+                LogOut
+              </li>
+            </>
           ) : (
             <Link to="/login" className="btn">
               Login

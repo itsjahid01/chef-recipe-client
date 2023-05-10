@@ -5,6 +5,7 @@ import { AuthContext } from "../provider/AuthProvider";
 const Register = () => {
   const { registerUser } = useContext(AuthContext);
   const [error, setError] = useState("");
+  const [passError, setPassError] = useState("");
 
   const handleCreateUser = (e) => {
     e.preventDefault();
@@ -15,11 +16,6 @@ const Register = () => {
     const photo = form.photo.value;
     console.log(name, email, password, photo);
 
-    if (password.length < 6) {
-      setError("password not valid need 6 char ");
-      return;
-    }
-
     if ((name, email, password)) {
       registerUser(email, password)
         .then((result) => {
@@ -28,6 +24,13 @@ const Register = () => {
         .catch((err) => {
           console.log(err.message);
         });
+    } else {
+      setError("Please fill the form.");
+    }
+
+    if (password && password.length < 6) {
+      setPassError("Password must be at least 6 characters long");
+      return;
     }
   };
 
@@ -35,6 +38,7 @@ const Register = () => {
     <div className="bg-gray-200">
       <div className="w-1/2 mx-auto p-5 text-center">
         <p className="text-2xl font-semibold mb-5 ">Sign Up</p>
+        {<p className="text-red-500">{error}</p>}
         <form onSubmit={handleCreateUser}>
           <label htmlFor="name">Name </label>
           <br />
@@ -65,8 +69,8 @@ const Register = () => {
             id="password"
             placeholder="Your Password"
           />
-          <p className="text-red-500">{error}</p>
-          <br />
+          {<p className="text-red-500">{passError}</p>}
+
           <label htmlFor="password">Photo URL</label>
           <br />
           <input
@@ -77,6 +81,7 @@ const Register = () => {
             placeholder="Your Photo Url"
           />
           <br />
+
           <button className="btn w-48 mb-5" type="submit">
             Register
           </button>
