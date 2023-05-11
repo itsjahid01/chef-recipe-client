@@ -1,12 +1,22 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { AuthContext } from "../provider/AuthProvider";
+import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
+
+const googleProvider = new GoogleAuthProvider();
+const githubProvider = new GithubAuthProvider();
 
 const Login = () => {
-  const { loginUser } = useContext(AuthContext);
+  const { loginUser, googleLogin, githubLogin } = useContext(AuthContext);
   const [error, setError] = useState("");
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  // console.log(location);
+
+  const from = location.state?.from?.pathname || "/";
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -14,13 +24,14 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
+    form.reset();
 
     if ((email, password)) {
       loginUser(email, password)
         .then((result) => {
           console.log(result.user);
           setError("");
-          // navigate("/");
+          navigate(from);
         })
         .catch((error) => {
           setError(error.message);
@@ -30,8 +41,30 @@ const Login = () => {
     }
   };
 
-  const handleGoogle = () => {};
-  const handleGithub = () => {};
+  const handleGoogleLogin = () => {
+    googleLogin(googleProvider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        navigate(from);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
+  const handleGithubLogin = () => {
+    githubLogin(githubProvider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        navigate(from);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
   return (
     <div className="bg-gray-200">
       <div className="w-1/2 mx-auto p-8 text-center">
@@ -70,13 +103,16 @@ const Login = () => {
           </Link>
         </p>
         <p>or Login With</p>
-        <button onClick={handleGoogle} className="btn btn-outline mr-3 mt-3">
+        <button
+          onClick={handleGoogleLogin}
+          className="btn btn-outline mr-3 mt-3"
+        >
           <span className="mr-2">
             <FaGoogle />
           </span>
           Sign in with Google
         </button>
-        <button onClick={handleGithub} className="btn btn-outline ">
+        <button onClick={handleGithubLogin} className="btn btn-outline ">
           <span className="mr-2">
             <FaGithub />
           </span>

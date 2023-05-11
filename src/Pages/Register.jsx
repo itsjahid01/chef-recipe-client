@@ -1,28 +1,37 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
   const { registerUser } = useContext(AuthContext);
   const [error, setError] = useState("");
   const [passError, setPassError] = useState("");
 
+  const navigate = useNavigate();
+
   const handleCreateUser = (e) => {
     e.preventDefault();
+
     const form = e.target;
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
-    const photo = form.photo.value;
-    console.log(name, email, password, photo);
+    const photoURL = form.photo.value;
+    console.log(name, email, password, photoURL);
+    form.reset();
 
     if ((name, email, password)) {
       registerUser(email, password)
         .then((result) => {
           console.log(result.user);
+          setPassError("");
+          updateUserData(result.user, name, photoURL);
+          navigate("/");
         })
         .catch((err) => {
           console.log(err.message);
+          setError("");
         });
     } else {
       setError("Please fill the form.");
@@ -32,6 +41,19 @@ const Register = () => {
       setPassError("Password must be at least 6 characters long");
       return;
     }
+  };
+
+  const updateUserData = (user, name, photoURL) => {
+    updateProfile(user, {
+      displayName: name,
+      photoURL: photoURL,
+    })
+      .then(() => {
+        console.log("profile updated");
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
   };
 
   return (

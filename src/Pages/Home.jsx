@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import Banner from "./Banner";
 import ChefCard from "./ChefCard";
 import Ingredients from "./Ingredients";
 import Seasons from "./Seasons";
+import { AuthContext } from "../provider/AuthProvider";
+import { ThreeDots } from "react-loader-spinner";
 
 const Home = () => {
+  // const { loading } = useContext(AuthContext);
+
   const chefData = useLoaderData();
   // console.log(chefData);
   return (

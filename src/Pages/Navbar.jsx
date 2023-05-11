@@ -1,13 +1,17 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
 
+  const navigate = useNavigate();
+
   const handleLogout = () => {
     logOut()
-      .then()
+      .then(() => {
+        navigate("/");
+      })
       .catch((err) => {
         console.log(err);
       });
@@ -62,9 +66,14 @@ const Navbar = () => {
         <div className="navbar-end">
           {user ? (
             <>
-              <div title="jahid" className="w-10 rounded-full mr-5">
-                <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-              </div>
+              <label
+                tabIndex={0}
+                className="btn btn-ghost btn-circle avatar mr-3"
+              >
+                <div title={user?.displayName} className="w-10 rounded-full">
+                  <img src={user?.photoURL} />
+                </div>
+              </label>
               <li onClick={handleLogout} className="btn">
                 LogOut
               </li>
