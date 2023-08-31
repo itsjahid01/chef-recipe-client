@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
+import logo from "../../public/tastyyummy-removebg-preview.png";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -17,7 +18,7 @@ const Navbar = () => {
       });
   };
   return (
-    <div className="bg-[#20303F] text-white">
+    <div className="bg-[#5f6469] text-white">
       <div className=" navbar">
         <div className="navbar-start">
           <div className="dropdown">
@@ -49,8 +50,11 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-          <Link to="/" className=" normal-case text-xl font-bold">
-            Tasty Yummies
+          <Link to="/" className=" normal-case text-2xl font-bold">
+            <div className="flex items-center gap-1">
+              <img src={logo} alt="" className="w-11" />
+              Tasty Yummies
+            </div>
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">

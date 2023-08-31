@@ -8,7 +8,7 @@ const ChefCard = (props) => {
     props.chef;
   return (
     <div>
-      <div className="card bg-[#bec9d4] shadow-2xl">
+      <div className="card bg-[#20303F] text-white shadow-2xl">
         <figure className="w-full h-80">
           <img src={chefImage} alt="Shoes" />
         </figure>

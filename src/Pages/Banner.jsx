@@ -1,20 +1,36 @@
 import React from "react";
-import banner from "../assets/ingredients/sam-moghadam-khamseh-ZxRHv6epgMQ-unsplash.jpg";
+// import banner1 from "../assets/banner1.jpg";
+import banner2 from "../assets/banner2.jpg";
+import banner3 from "../assets/banner3.jpg";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import "swiper/css";
+import "swiper/css/navigation";
+// import required modules
+import { Navigation } from "swiper/modules";
 
 const Banner = () => {
   return (
-    <div className="grid md:grid-cols-2 p-5 gap-6">
-      <div className="lg:mt-16 p-5">
-        <p className="text-3xl font-semibold ">WELCOME TO OUR FOOD WEBSITE</p>
-        <p className="mt-3">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eu
-          purus purus. Donec commodo dui at ligula sagittis finibus.
-        </p>
-        <button className="btn mt-4 ">Learn More </button>
-      </div>
-      <div className="">
-        <img className="rounded" src={banner} alt="" />
-      </div>
+    <div className="">
+      <Swiper
+        autoplay={true}
+        navigation={true}
+        modules={[Navigation]}
+        className="mySwiper "
+      >
+        <SwiperSlide>
+          {" "}
+          <img src={banner2} className="min-h-screen" />{" "}
+        </SwiperSlide>
+        <SwiperSlide>
+          {" "}
+          <img src={banner3} />{" "}
+        </SwiperSlide>
+        <SwiperSlide>
+          {" "}
+          <img src={banner2} />{" "}
+        </SwiperSlide>
+      </Swiper>
     </div>
   );
 };

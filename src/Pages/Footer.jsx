@@ -1,12 +1,16 @@
 import React from "react";
+import logo from "../../public/tastyyummy-removebg-preview.png";
 
 const Footer = () => {
   return (
-    <div className="bg-[#20303F] text-white">
+    <div className="bg-[#5f6469] text-white">
       <footer className="">
         <div className="footer p-10 ">
           <div>
-            <p className="text-xl font-bold">Tasty Yummies</p>
+            <div className="flex items-center normal-case text-2xl font-bold ">
+              <img src={logo} alt="" className="w-14 mr-1" />
+              Tasty Yummies
+            </div>
             <span className="footer-title">Social</span>
             <div className="grid grid-flow-col gap-4">
               <a>
@@ -57,7 +61,7 @@ const Footer = () => {
             <a className="link link-hover">Terms & Condition</a>
           </div>
         </div>
-        <p className="p-3 text-center">
+        <p className="p-3 text-center bg-[#20303F]">
           © Copyright 2023 - Tasty Yummies All Rights Reserved.
         </p>
       </footer>
