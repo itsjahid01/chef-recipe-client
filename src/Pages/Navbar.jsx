@@ -17,8 +17,8 @@ const Navbar = () => {
       });
   };
   return (
-    <div className="bg-red-400">
-      <div className="container mx-auto navbar">
+    <div className="bg-[#20303F] text-white">
+      <div className=" navbar">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -39,7 +39,7 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-[#20303F] rounded-box w-52"
             >
               <li>
                 <Link to="/">Home</Link>

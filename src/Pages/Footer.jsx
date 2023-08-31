@@ -2,9 +2,9 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="bg-red-400">
-      <footer className="container mx-auto ">
-        <div className="footer p-10 text-base-content">
+    <div className="bg-[#20303F] text-white">
+      <footer className="">
+        <div className="footer p-10 ">
           <div>
             <p className="text-xl font-bold">Tasty Yummies</p>
             <span className="footer-title">Social</span>
@@ -57,7 +57,6 @@ const Footer = () => {
             <a className="link link-hover">Terms & Condition</a>
           </div>
         </div>
-        <hr className="m-2" />
         <p className="p-3 text-center">
           © Copyright 2023 - Tasty Yummies All Rights Reserved.
         </p>

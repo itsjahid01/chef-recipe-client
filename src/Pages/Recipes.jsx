@@ -23,8 +23,8 @@ const Recipes = (props) => {
         </p>
         <p>
           <span className="text-lg font-semibold">Ingredients: </span>
-          {ingredients?.map((item) => (
-            <li>{item}</li>
+          {ingredients?.map((item, index) => (
+            <li key={index}>{item}</li>
           ))}
         </p>
         <p>

@@ -67,7 +67,7 @@ const Login = () => {
 
   return (
     <div className="bg-gray-200">
-      <div className="w-1/2 mx-auto p-8 text-center">
+      <div className="w-[60%] mx-auto p-8 text-center">
         <p className="text-2xl font-semibold mb-8">Login</p>
         <form onSubmit={handleLogin}>
           <label htmlFor="email">Email Address</label>

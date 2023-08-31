@@ -57,8 +57,8 @@ const Register = () => {
   };
 
   return (
-    <div className="bg-gray-200">
-      <div className="w-1/2 mx-auto p-5 text-center">
+    <div className="bg-gray-100">
+      <div className="w-[60%] mx-auto p-5 text-center">
         <p className="text-2xl font-semibold mb-5 ">Sign Up</p>
         {<p className="text-red-500">{error}</p>}
         <form onSubmit={handleCreateUser}>
