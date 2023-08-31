@@ -5,3 +5,4 @@
 - using private route to protect dynamic route.if there is a user so user will show the private route otherwise can not show the private route .
 
 live site link: https://chef-recipes-1b5f9.web.app/
+server site link: https://github.com/itsjahid01/chef-recipe-server
